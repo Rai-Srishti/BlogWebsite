@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 
 import Registration from './pages/Registration'
@@ -18,6 +18,7 @@ function App() {
   return (
     <>
       <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path='/registration' element={<Registration />} />
         <Route path='/login' element={<Login />} />
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='myBlog/:id' element={<MyBlog/>}/>
           <Route path='editBlog/:id' element={<EditBlog/>}/>
         </Route>
+        <Route path="*" element={<Navigate to="/login" replace />} />
 
       </Routes>
 
